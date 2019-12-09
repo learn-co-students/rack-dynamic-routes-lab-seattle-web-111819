@@ -7,7 +7,7 @@ class Application
         req = Rack::Request.new(env)
 
         if req.path.match (/items/)
-           item_name = req.path.split("/items/").last #extract item name from array
+           item_name = req.path.split("/items/").last #extract item name from array using .split
            if item = @@items.find {|i| i.name == item_name} #find item in @@items array
                 resp.write item.price #return the price of the item if it's in @@items array
             else
